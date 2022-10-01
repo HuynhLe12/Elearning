@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/test.css">
+    <link rel="stylesheet" href="~/css/admin-style.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+
+                <form class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li style="list-style: none;">
+                            <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </form>
+                <ul class="navbar-nav navbar-right">
+                    <li class="dropdown dropdown-list-toggle" id="dropdown-laguage">
+                        <a href="#" data-toggle="dropdown"
+                           class="nav-link nav-link-lg message-toggle beep"><i class="fa fa-language"></i></a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right" id="dropdown-menu-right-laguages">
+                            <div class="dropdown-header">
+                                Languages
+
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-message">
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/en"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>English</b>
+                                    </div>
+                                </a>
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/es"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>Spanish</b>
+                                    </div>
+                                </a>
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/ar"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>arabic</b>
+                                    </div>
+                                </a>
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/TR"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>Türkçe</b>
+                                    </div>
+                                </a>
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/Pt"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>Portugues</b>
+                                    </div>
+                                </a>
+                                <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/locale/da"
+                                   class="dropdown-item">
+                                    <div class="dropdown-item-desc">
+                                        <b>da</b>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="dropdown" id="btn-dropdown-profile">
+                        <a href="#" data-toggle="dropdown"
+                           class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image"
+                                 src="https://saasmonks.in/App-Demo/Cursus-33214/public/upload/image/60dee1e59cf8d.png"
+                                 class="rounded-circle mr-1">
+                            <div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" id="dropdown-profile">
+                            <div class="dropdown-title">Logged in </div>
+                            <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/profile"
+                               class="dropdown-item has-icon">
+                                <i class="far fa-user margin-top-icon"></i> Profile
+                            </a>
+
+                            <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/general"
+                               class="dropdown-item has-icon">
+                                <i class="fas fa-cog margin-top-icon"></i> Settings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/logout"
+                               class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt margin-top-icon"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar scrollbar" id="style-1">
+
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="../AdminHome/Index">Cursus</a>
+                    </div>
+                    <div class="sidebar-brand sidebar-brand-sm">
+                        <a href="../AdminHome/Index"></a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a class="nav-link"
+                               href="./index.html">
+                                <i class="fa-solid fa-chart-network"></i>
+
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-header">Starter</li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Role/Index">
+                                <i class="far fa-address-book"></i> <span>Role</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../User/Index">
+                                <i class="far fa-user"></i> <span>Users</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Language/Index">
+                                <i class="fas fa-language"></i>
+                                <span>Languages</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Category/Index">
+                                <i class="fas fa-list-ul"></i>
+                                <span>Categories</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../SubCategory/Index">
+                                <i class="fas fa-boxes"></i>
+                                <span>Sub Categories</span>
+                            </a>
+                        </li>
+                        <li class="menu-header">Students</li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Student/Index">
+                                <i class="fas fa-user"></i>
+                                <span>Student</span>
+                            </a>
+                        </li>
+                        <li class="menu-header">Instructor</li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Instructor/Index">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Instructor</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="../Payout/Index">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Payout</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown " id="btn-dropdown-course">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                                <i class="fas fa-book"></i>
+                                <span>Course</span>
+                            </a>
+                            <ul class="dropdown-menu" id="dropdown-course">
+                                <li>
+                                    <a class="nav-link  "
+                                       href="../Course/CourseWaiting">
+                                        Waiting
+                                        for approval
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link  "
+                                       href="../Course/Index">All</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-header">Extra</li>
+
+                        <li class="nav-item dropdown ">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/general">General</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/legal">Legal</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/social">Social</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/payment">Payment</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/seo">SEO</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/appearance">Appearance</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/other">Other</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown ">
+                            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                                <i class="far fa-file-word"></i>
+                                <span>Reports</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/setting/general">Earning</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/report/course-sell">
+                                        Cource
+                                        Selling
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/report/subscription">
+                                        Subscription
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/report/instructor-registration">
+                                        Instructor
+                                        Registration
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link"
+                                       href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/report/student-registration">
+                                        Student
+                                        Registration
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/feedback">
+                                <i class="fas fa-comment"></i>
+                                <span>Feedback</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/noti-template">
+                                <i class="fas fa-bell"></i>
+                                <span>Notification Template</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a class="nav-link"
+                               href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/web-language">
+                                <i class="fa fa-language"></i>
+                                <span>Web Languages</span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a class="nav-link"
+                               href="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/faqs">
+                                <i class="fas fa-question"></i>
+                                <span>FAQ</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </aside>
+            </div>
+
+
+            <div class="main-content">
+                @RenderBody()
+                
+            </div>
+            <!-- <footer class="main-footer">
+
+            </footer> -->
+        </div>
+    </div>
+
+    <style>
+
+        #dropdown-profile, #dropdown-menu-right-laguages {
+            display: none;
+        }
+    </style>
+    <script>
+        const btn = document.getElementById("dropdown-laguage");
+        const divlang = document.getElementById("dropdown-menu-right-laguages");
+
+        const btnProfile = document.getElementById("btn-dropdown-profile");
+        const divProfile = document.getElementById("dropdown-profile");
+
+        const btnCourse = document.getElementById("btn-dropdown-course");
+        const divCourse = document.getElementById("dropdown-course");
+
+        //onlick laguages
+        btn.addEventListener("click", function(){
+            divProfile.classList.remove("show");
+            divlang.classList.toggle("show");
+        })
+
+        // onclick profile
+
+
+        btnProfile.addEventListener("click", function(){
+            divlang.classList.remove("show");
+            divProfile.classList.toggle("show");
+        })
+
+
+        btnCourse.addEventListener("click", function () {
+            divlang.classList.remove("show");
+            divCourse.classList.toggle("show");
+        })
+    </script>
+</body>
+
+</html>

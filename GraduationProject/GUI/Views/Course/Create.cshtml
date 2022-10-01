@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_InstructorLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="course_tabs_1">
+                <div id="add-course-tab" class="step-app">
+                    <div class="step-content">
+                        <div class="step-tab-panel step-tab-location active" id="tab_step3">
+                            <div class="tab-from-content">
+                                <div class="course__form">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="extra_info">
+                                                <h4 class="part__title">New Lecture</h4>
+                                            </div>
+
+                                            <div class="view_info10">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-12">
+                                                        <div class="ui search focus mt-30 lbel25">
+                                                            <label>Course Title*</label>
+                                                            <div class="ui left icon input swdh19">
+                                                                <input class="prompt srch_explore"
+                                                                       type="text"
+                                                                       placeholder="Insert your lecture title."
+                                                                       name="title"
+                                                                       data-purpose="edit-course-title"
+                                                                       maxlength="60" id="title_course" value=""
+                                                                       required="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="part_input mt-30 lbel25">
+                                                            <label>Image</label>
+                                                            <div class="input-group">
+                                                                <div class="custom-file">
+                                                                    <input type="file"
+                                                                           class="custom-file-input"
+                                                                           id="lectureFileInput"
+                                                                           name="file" required=""
+                                                                           onchange="onLectureFileChange()">
+                                                                    <label class="custom-file-label"
+                                                                           for="inputGroupFile06">
+                                                                        Choose
+                                                                        Image
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6">
+                                                        <div class="ui search focus mt-30 lbel25">
+                                                            <label>Price</label>
+                                                            <div class="ui left icon input swdh19">
+                                                                <input class="prompt srch_explore"
+                                                                       type="number" id="price_course" placeholder="0" name="position"
+                                                                       required="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="course_des_textarea mt-30 lbel25">
+                                                            <label>Description*</label>
+                                                            <textarea id="description_course" rows="20" cols="200">
+                                                                        </textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-6">
+                                                        <div class="ui search focus mt-30 lbel25">
+                                                            <label>SubCategory*</label>
+                                                            <div class="ui left icon input swdh19 swdh95">
+                                                                <select id="list_course_subcategory">
+                                                                    <option value="value">---Select---</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-5 col-md-6">
+                                                        <div class="ui search focus mt-30 lbel25">
+                                                            <label>Language*</label>
+                                                            <div class="ui left icon input swdh19 swdh55">
+                                                                <select id="list_course_language">
+                                                                    <option value="value">---Select---</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-12">
+                                                        <button class="part_btn_save prt-sv" type="submit" onclick="save_course()">
+                                                            Save Course
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/SubCategory",
+        success: function (data) {
+            $.each(data, function (key, value) {
+                $('#list_course_subcategory').append(
+                    `<option value="${value.id}">${value.name}</option>`
+                );
+            });
+        },
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Languages",
+        success: function (data) {
+            $.each(data, function (key, value) {
+                $('#list_course_language').append(
+                    `<option value="${value.id}">${value.name}</option>`
+                );
+            });
+        },
+    });
+
+    function save_course() {
+        var title = $("#title_course").val();
+        var category = $("#list_course_subcategory").val();
+        var price = $("#price_course").val();
+        var image = document.querySelector('#lectureFileInput');
+        var language = $("#list_course_language").val();
+        var des = $("#description_course").val();
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('price', price);
+        formData.append('subCategoryId', category);
+        formData.append('description', des);
+        formData.append('LanguageId', language );
+        formData.append('BackgroupCourse', image.files[0] );
+        $.ajax({
+            url: "http://localhost:57678/Courses/Information",
+            type: "POST",
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            data: formData,
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function edit_course_form(id) {
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:57678/Course/" + id,
+            success: function (data) {
+                $('#course_form').attr('style', 'display: none');
+                $('#create_course').append(
+                    `<div class="row">
+                        <div class="col-lg-12">
+                            <div class="extra_info">
+                                <h4 class="part__title">New Lecture</h4>
+                            </div>
+
+                            <div class="view_info10">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12">
+                                        <div class="ui search focus mt-30 lbel25">
+                                            <label>Course Title*</label>
+                                            <div class="ui left icon input swdh19">
+                                                <input class="prompt srch_explore"
+                                                        type="text"
+                                                        placeholder="Insert your lecture title."
+                                                        name="title"
+                                                        data-purpose="edit-course-title"
+                                                        maxlength="60" id="title_course" value="${data.title}"
+                                                        required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="part_input mt-30 lbel25">
+                                            <label>Image</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file"
+                                                            class="custom-file-input"
+                                                            id="lectureFileInput"
+                                                            name="file" required="" value="${data.image}"
+                                                            onchange="onLectureFileChange()">
+                                                    <label class="custom-file-label"
+                                                            for="inputGroupFile06">
+                                                        Choose
+                                                        Image
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="ui search focus mt-30 lbel25">
+                                            <label>Price</label>
+                                            <div class="ui left icon input swdh19">
+                                                <input class="prompt srch_explore" value="${data.price}"
+                                                        type="number" id="price_course" placeholder="0" name="position"
+                                                        required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="course_des_textarea mt-30 lbel25">
+                                            <label>Description*</label>
+                                            <textarea id="description_course" rows="20" cols="200">
+                                                   ${data.description}     </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="ui search focus mt-30 lbel25">
+                                            <label>SubCategory*</label>
+                                            <div class="ui left icon input swdh19 swdh95">
+                                                <select id="list__edit_course_subcategory">
+                                                    <option value="value">---Select---</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-6">
+                                        <div class="ui search focus mt-30 lbel25">
+                                            <label>Language*</label>
+                                            <div class="ui left icon input swdh19 swdh55">
+                                                <select id="list_edit_course_language">
+                                                    <option value="value">---Select---</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-12">
+                                        <button class="part_btn_save prt-sv" type="submit" onclick="edit_course('${value.id}')">
+                                            Save Course
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+                );
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:57678/SubCategory",
+                    success: function (result) {
+                        $.each(result, function (key, value) {
+
+                            $('#list_edit_course_language').append(
+                                `<option value="${value.id}" ${data.languageId == value.id ? 'selected' : ''}>${value.name}</option>`
+                            );
+                        });
+                    },
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:57678/Languages",
+                    success: function (result) {
+                        $.each(result, function (key, value) {
+
+                            $('#list__edit_course_subcategory').append(
+                                `<option value="${value.id}" ${data.subCategoryId == value.id ? 'selected' : ''}>${value.name}</option>`
+                            );
+                        });
+                    },
+                });
+            },
+        });
+    }
+
+</script>
+

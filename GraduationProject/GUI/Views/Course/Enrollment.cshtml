@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewData["Title"] = "Enrollment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 ">
+        <div class="section3125 hstry142">
+            <div class="grp_titles pt-0">
+                <div class="ht_title">Buy Courses</div>
+
+            </div>
+            <div class="tb_145">
+                <div class="wtch125">
+                    <span class="vdt14">32 Buy Courses</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="_14d25 mb-20">
+            <div class="row">
+                <div class="col-md-12" id="enroll_course">
+                    <h4 class="mhs_title">Buy Courses</h4>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:57678/DetailStudent/Enrollment/@ViewBag.studentId',
+        success: function (data) {
+            $.each(data, function (key, value) {
+                $('#enroll_course').append(
+                    `<div class="fcrse_1 mb-30">
+                        <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/courses/ajuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu/540"
+                           class="hf_img">
+                            <img src="https://saasmonks.in/App-Demo/Cursus-33214/public/default.png"
+                                 alt="">
+                            <div class="course-overlay">
+
+                                <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                <div class="crse_timer">
+                                    0 hours
+                                </div>
+                            </div>
+                        </a>
+                        <div class="hs_content">
+                            <div class="eps_dots eps_dots10 more_dropdown">
+                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                                <div class="dropdown-content">
+                                    <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/order-invoice/39"
+                                       target="_blank">
+                                        <span>
+                                            <i class="uil uil-print"></i>Invoice
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="vdtodt">
+                                <span class="vdt14">
+                                    452
+                                    views
+                                </span>
+                                <span class="vdt14">${value.dateBuy}</span>
+                            </div>
+                            <a href="https://saasmonks.in/App-Demo/Cursus-33214/public/courses/ajuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu/540"
+                               class="crse14s title900">${value.title}</a>
+                            <a href="#" class="crse-cate">
+                                abc
+                            </a>
+                            <div class="auth1lnkprce">
+                                <p class="cr1fot">
+                                    By <a href="#">${value.instructorName}</a>
+                                </p>
+                                <div class="prce142">
+                                    $${value.price}
+                                </div>
+
+
+                            </div>
+                            <div class="auth1lnkprce">
+                                <p class="cr1fot">
+                                    create at ${value.dateBuy}
+                                </p>
+                            </div>
+                        </div>
+                    </div>`
+                );
+            });
+        }
+    });
+
+    function SaveCourse(id) {
+        $.ajax({
+            url: "http://localhost:57678/AddCategory",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'name': name, 'status': status }),
+            success: function (data) {
+                alert("Created successfully")
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+</script>

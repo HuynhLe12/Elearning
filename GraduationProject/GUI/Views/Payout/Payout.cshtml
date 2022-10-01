@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewData["Title"] = "Payout";
+    Layout = "~/Views/Shared/_InstructorLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="st_title"><i class="uil uil-wallet"></i> Payout</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-5">
+            <div class="top_countries mt-30">
+                <div class="top_countries_title">
+                    <h2>Available Amount</h2>
+                </div>
+                <div class="payout_content">
+                    <span><strong>$0.06</strong></span>
+                    <div class="payout__via">
+                        <strong></strong>
+                    </div>
+                    <p>
+                        <small class="payout__small-notification">
+                            Your payout will be take <strong>
+                                2 3
+                                business
+                                days
+                            </strong>
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div class="top_countries mt-30">
+                <div class="top_countries_title">
+                    <h2>Payout Now</h2>
+                </div>
+                <input type="hidden" name="_token" value="2zUQCM1ylRT2LAPTA6dqMI6Lls0jDBHtVmZQ3QmM">
+                <div class="payout_content">
+                    <div class="explore_search">
+                        <div class="ui search focus">
+                            <div class="ui   input swdh11 swdh15">
+                                <input class="prompt srch_explore" type="number"
+                                       placeholder="Enter Amount you payout" name="amount" id="payout_amount" required="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <p><button onclick="add_payout()" class="payout__btn">Set Account</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-7">
+            <div class="table-responsive mt-30">
+                <table class="table ucp-table earning__table">
+                    <thead class="thead-s">
+                        <tr>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Remark</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Last Update</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_payout_instructor">
+                        
+                            
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Payout/Instructor",
+        success: function (data) {
+            $.each(data, function (key, value) {
+                var remark
+                if (value.remark == null) {
+                    remark = '-';
+                } else {
+                    remark = value.remark;
+                }
+                $('#list_payout_instructor').append(
+                    `<tr >
+                    <td>${value.amount}</td>
+                    <td>${remark}</td>
+                    <td>
+                        <span class="text-primary">
+                            ${value.status}
+                        </span>
+                    </td>
+                    <td>${value.update}</td>
+                    </tr>`
+                );
+            });
+        },
+    });
+
+    function add_payout() {
+        var amount = $("#payout_amount").val();
+        $.ajax({
+            url: "http://localhost:57678/Payout/InsertPayout",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'amount': amount}),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_InstructorLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row" id="course_form">
+        <div class="col-md-8">
+            <div class="my_courses_tabs">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-my-courses" role="tabpanel">
+                        <div class="table-responsive mt-30">
+                            <table class="table ucp-table">
+                                <thead class="thead-s">
+                                    <tr>
+                                        <th class="text-center" scope="col">#</th>
+                                        <th>Title</th>
+                                        <th class="text-center" scope="col">Total Time</th>
+                                        <th class="text-center" scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list_section">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top_countries col-md-4">
+            <div class="top_countries_title">
+                <h2>Add Section</h2>
+            </div>
+            <div class="payout_content">
+                <div class="explore_search">
+                    <div class="ui search focus">
+                        <div class="ui input swdh11 swdh15">
+                            <input class="prompt srch_explore" id="section_title" type="text" placeholder="Enter Section" name="amount" required="">
+                            <input class="prompt srch_explore" id="totaltime" type="text" placeholder="Enter Total Time"  required="">
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" onclick="create_section()" class="payout__btn">Add Section</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Course/Sections/@ViewBag.courseId",
+        success: function (data) {
+            $.each(data, function (key, value) {
+
+                $('#list_section').append(
+                    `<tr>
+                        <td class="text-center">1</td>
+                        <td><a href="/Lecture/Index?id=${value.id}">${value.courseContentTitle}</a></td>
+                        <td class="text-center">${value.totalTime}</td>
+                        <td class="text-center d-flex justify-content-center">
+                            <button class="create_btn_dash" onclick="edit_course_form('${value.id}')">Detail</button>
+                            <button class="create_btn_dash" onclick="delete_section_course('${value.id}')">Delete</button>
+                        </td>
+                    </tr>`
+                );
+            });
+        },
+    });
+
+    function create_section() {
+        var title = $("#section_title").val();
+        var time = $("#totaltime").val();
+        $.ajax({
+            url: "http://localhost:57678/Courses/Section",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'courseId': '@ViewBag.courseId', 'courseContentTitle': title, 'totalTime': time }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function delete_section_course(id) {
+        $.ajax({
+            url: "http://localhost:57678/Course/Section/Delete/" + id,
+            type: "put",
+            contentType: "application/json",
+            success: function () {
+                location.reload();
+            }
+        })
+    }
+</script>
+

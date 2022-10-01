@@ -1,0 +1,444 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="section">
+    <div class="section-header">
+        <h1>Users</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#">Home</a></div>
+            <div class="breadcrumb-item"><a href="#">Users</a></div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="row">
+
+            <div class="col-12 col-md-8 col-lg-8 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Users List</h4>
+
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <div id="datatable_wrapper"
+                                 class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                <div class="dt--top-section">
+                                    <div class="row">
+                                        <div class="d-flex justify-content-md-start justify-content-center">
+                                            <div class="dt-buttons">
+                                                <button class="dt-button buttons-copy buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Copy</span>
+                                                </button>
+                                                <button class="dt-button buttons-csv buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>CSV</span>
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Excel</span>
+                                                </button>
+                                                <button class="dt-button buttons-print btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Print</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">
+                                            <div id="datatable_filter" class="dataTables_filter">
+                                                <label>
+                                                    Search:<input type="search" class="form-control"
+                                                                  placeholder="Search..."
+                                                                  aria-controls="datatable">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-container">
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>#</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Name</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-3">
+                                            <span>Role</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <span>Action</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list" id="list_users">
+                                        
+                                    </ul>
+
+                                    <ul class="pageding">
+                                        <li>
+                                            <div class="div-show-number">Showing page 1 of 14</div>
+
+                                        </li>
+                                        <li>
+                                            <div class="div-page-number">
+                                                <ul class="ul-page-number">
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-left-long"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a class="page-first">1</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>2</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>3</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>4</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-right-long"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 " id="edit_user">
+                <div class="card" id="createUser_form">
+                    <div class="card-header">
+                        <h4>Add New User</h4>
+                    </div>
+
+                    <input type="hidden" name="_token"
+                           value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                    <div class="card-body" >
+                        <div class="row " >
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>UserName</label>
+                                    <input type="text" name="name" class="form-control " id="user_name" required=""
+                                           maxlength="50" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" name="name" class="form-control " id="first_name" required=""
+                                           maxlength="50" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" name="name" class="form-control " id="last_name" required=""
+                                           maxlength="50" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" name="name" class="form-control " id="user_email" required=""
+                                           maxlength="50" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" name="name" class="form-control " id="user_pass" required=""
+                                           maxlength="50" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group" >
+                                    <label>RoleName</label>
+                                    <select id="user_role_list">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary" onclick="create_user()">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="col-12 col-md-4 col-lg-4 " id="edit-role">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Edit User</h4>
+                        </div>
+                        <form action="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/role"
+                              method="POST" enctype="multipart/form-data">
+
+                            <input type="hidden" name="_token"
+                                   value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                            <div class="card-body">
+                                <div class="row ">
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>UserName</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label>RoleName</label>
+                                            <input type="text" name="name" class="form-control " required=""
+                                                   maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Role",
+        success: function (data) {
+            $.each(data, function (key, value) {
+                $('#user_role_list').append(
+                    `<option value="${value.id}">${value.name}</option>`
+                );
+            });
+        },
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Users",
+        success: function (data) {
+            $.each(data, function (key, value) {
+
+                $('#list_users').append(
+                    `<li class="body-table table-1">
+                        <span>1</span>
+
+                    </li>
+                    <li class="body-table table-2">
+                        <span>${value.userName}</span>
+                    </li>
+                    <li class="body-table table-3 table-status">
+                        <span class="body-status">${value.roleName}</span>
+                    </li>
+                    <li class="body-table table-1">
+                        <span onclick="edit_user_form('${value.id}')"><i class="fa-solid icon-edit fa-pen-to-square"
+                            id="edit-role-icon"></i></span>
+                        <span onclick="delete_user('${value.id}')"><i class="fa-solid icon-remove fa-trash-can"
+                            id="delete-role"></i></span>
+                    </li>`
+                );
+            });
+        },
+    });
+
+    function create_user() {
+        var email = $("#user_email").val();
+        var pass = $("#user_pass").val();
+        var username = $("#user_name").val();
+        var firstName = $("#first_name").val();
+        var lastName = $("#last_name").val();
+        var roleId = $("#user_role_list").val();
+        $.ajax({
+            url: "http://localhost:57678/Users",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'email': email, 'password': pass, 'username': username, 'firstName': firstName, 'lastName': lastName, 'roleId': roleId }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function edit_users(id) {
+        var email = $("#user_edit_email").val();
+        var username = $("#user_edit_name").val();
+        var firstName = $("#first_edit_name").val();
+        var lastName = $("#last_edit_name").val();
+        var roleId = $("#user_edit_role_list").val();
+
+        $.ajax({
+            url: "http://localhost:57678/Users",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'id':id, 'email': email, 'username': username, 'firstName': firstName, 'lastName': lastName, 'roleId': roleId }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function edit_user_form(id) {
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:57678/Users/" + id,
+            success: function (data) {
+                $('#createUser_form').attr('style', 'display: none');
+                $('#edit_user').append(
+                    `<div class="card">
+                        <div class="card-header">
+                        <h4>Add New User</h4>
+                    </div>
+
+                    <input type="hidden" name="_token"
+                           value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                    <div class="card-body" >
+                        <div class="row " >
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>UserName</label>
+                                    <input type="text" name="name" class="form-control " id="user_edit_name" required=""
+                                           maxlength="50" value="${data.userName}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" name="name" class="form-control " id="first_edit_name" required=""
+                                           maxlength="50" value="${data.firstName}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" name="name" class="form-control " id="last_edit_name" required=""
+                                           maxlength="50" value="${data.lastName}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" name="name" class="form-control " id="user_edit_email" required=""
+                                           maxlength="50" value="${data.email}">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12">
+                                <div class="form-group" >
+                                    <label>RoleName</label>
+                                    <select id="user_edit_role_list">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary" onclick="edit_users('${data.id}')">Submit</button>
+                    </div>
+                    </div>`
+                );
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:57678/Role",
+                    success: function (result) {
+                        $.each(result, function (key, value) {
+
+                            $('#user_edit_role_list').append(
+                                `<option value="${value.id}" ${data.roleId == value.id ? 'selected' : ''}>${value.name}</option>`
+                            );
+                        });
+                    },
+                });
+            },
+        });
+
+    }
+
+    function delete_user(id) {
+        $.ajax({
+            url: "http://localhost:57678/Users/" + id,
+            type: "delete",
+            contentType: "application/json",
+            success: function () {
+                location.reload();
+            }
+        })
+    }
+</script>
+

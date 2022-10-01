@@ -1,0 +1,408 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="section">
+    <div class="section-header">
+        <h1>Categories</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#">Home</a></div>
+            <div class="breadcrumb-item"><a href="#">Categories</a></div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="row">
+
+            <div class="col-12 col-md-8 col-lg-8 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Categories List</h4>
+
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <div id="datatable_wrapper"
+                                 class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                <div class="dt--top-section">
+                                    <div class="row">
+                                        <div class="d-flex justify-content-md-start justify-content-center">
+                                            <div class="dt-buttons">
+                                                <button class="dt-button buttons-copy buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Copy</span>
+                                                </button>
+                                                <button class="dt-button buttons-csv buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>CSV</span>
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Excel</span>
+                                                </button>
+                                                <button class="dt-button buttons-print btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Print</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">
+                                            <div id="datatable_filter" class="dataTables_filter">
+                                                <label>
+                                                    Search:<input type="search" class="form-control"
+                                                                  placeholder="Search..."
+                                                                  aria-controls="datatable">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-container">
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>#</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Name</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Category</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Status</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <span>Action</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list" id="list_subCate">
+
+                                    </ul>
+                                    <ul class="pageding">
+                                        <li>
+                                            <div class="div-show-number">Showing page 1 of 14</div>
+
+                                        </li>
+                                        <li>
+                                            <div class="div-page-number">
+                                                <ul class="ul-page-number">
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-left-long"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a class="page-first">1</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>2</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>3</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>4</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-right-long"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 " id="create_subCate">
+                <div class="card" id="subCate_form">
+                    <div class="card-header">
+                        <h4>Add New SubCategory</h4>
+                    </div>
+
+                        <input type="hidden" name="_token"
+                               value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control " id="subCate_name"
+                                               maxlength="50" value="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group" id="listCate">
+                                        <label>Category</label>
+                                        <Select id="category_sub">
+                                            
+                                        </Select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select id="subCate_status">
+                                            <option value="true">Active</option>
+                                            <option value="false">De-Active</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary" type="submit" onclick="create_subCate()">Submit</button>
+                        </div>
+                </div>
+            </div>
+
+            @*<div class="col-12 col-md-4 col-lg-4 " id="edit-role">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Edit User</h4>
+                        </div>
+                        <input type="hidden" name="_token"
+                                value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control " required=""
+                                                maxlength="50" value="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea type="text" name="name" class="form-control " required=""
+                                                    maxlength="50" value=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <textarea type="text" name="name" class="form-control " required=""
+                                                    maxlength="50" value=""></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/Category",
+        success: function (data) {
+            $.each(data, function (key, value) {
+
+                $('#category_sub').append(
+                    `<option value="${value.id}">${value.name}</option>`
+                );
+            });
+        },
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://localhost:57678/SubCategory",
+        success: function (data) {
+            $.each(data, function (key, value) {
+                var status
+                if (value.status == true) {
+                    status = 'Active'
+                } else {
+                    status = 'De-Active'
+                }
+
+                $('#list_subCate').append(
+                    `<li class="body-table table-1">
+                        <span>1</span>
+
+                    </li>
+                    <li class="body-table table-2">
+                        <span>${value.name}</span>
+                    </li>
+                    <li class="body-table table-2">
+                        <span>${value.categoryName}</span>
+                    </li>
+                    <li class="body-table table-2 table-status">
+                        <span class="body-status">${status}</span>
+                    </li>
+                    <li class="body-table table-2">
+                        <span onclick="edit_subcate_form('${value.id}')"><i class="fa-solid icon-edit fa-pen-to-square"
+                            id="edit-role-icon"></i></span>
+                        <span onclick="delete_subCate('${value.id}')"><i class="fa-solid icon-remove fa-trash-can"
+                            id="delete-role"></i></span>
+                    </li>`
+                );
+            });
+        },
+    });
+
+    function create_subCate() {
+        var name = $("#subCate_name").val();
+        var status = $("#subCate_status").val();
+        var category = $("#category_sub").val();
+        $.ajax({
+            url: "http://localhost:57678/AddSubCategory",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'name': name, 'status': status, 'categoryid':category }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function edit_subCate(id) {
+        var name = $("#edit_subCate_name").val();
+        var status = $("#edit_subCate_status").val();
+        var category = $("#edit_category_sub").val();
+        console.log(category);
+        $.ajax({
+            url: "http://localhost:57678/UpdateSubCategory",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ 'id': id, 'name': name, 'status': status, 'categoryid': category }),
+            success: function (data) {
+                location.reload();
+            },
+            error: function (e) {
+                alert("fail")
+                console.log('Error in Operation');
+            }
+        });
+    }
+
+    function edit_subcate_form(id) {
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:57678/SubCategory/" + id,
+            success: function (data) {
+                $('#subCate_form').attr('style', 'display: none');
+                $('#create_subCate').append(
+                    `<div class="card">
+                        <div class="card-header">
+                            <h4>Edit SubCategory</h4>
+                        </div>
+                        <input type="hidden" name="_token"
+                                value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control " id="edit_subCate_name"
+                                               maxlength="50" value="${data.name}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group" id="listCate">
+                                        <label>Category</label>
+                                        <Select id="edit_category_sub">
+
+                                        </Select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select id="edit_subCate_status">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary" onclick="edit_subCate('${data.id}')" type="submit">Submit</button>
+                        </div>
+                    </div>`
+                );
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:57678/Category",
+                    success: function (result) {
+                        $.each(result, function (key, value) {
+
+                            $('#edit_category_sub').append(
+                                `<option value="${value.id}" ${data.categoryId==value.id?'selected':''}>${value.name}</option>`
+                            );
+                        });
+                    },
+                });
+                if (data.status == true) {
+                    $('#edit_subCate_status').append(
+                        `<option value="true" selected>Active</option>
+                        <option value="false">De-Active</option>`
+                    );
+                } else {
+                    $('#edit_subCate_status').append(
+                        `<option value="true">Active</option>
+                        <option value="false" selected>De-Active</option>`
+                    )
+                }
+            },
+        });
+
+    }
+
+    function delete_subCate(id) {
+        $.ajax({
+            url: "http://localhost:57678/DeleteSubCategory/" + id,
+            type: "delete",
+            contentType: "application/json",
+            success: function () {
+                location.reload();
+            }
+        })
+    }
+</script>
+

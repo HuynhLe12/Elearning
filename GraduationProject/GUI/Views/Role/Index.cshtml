@@ -1,0 +1,327 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="section">
+    <div class="section-header">
+        <h1>Roles</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item active"><a href="#">Home</a></div>
+            <div class="breadcrumb-item"><a href="#">Roles</a></div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="row">
+
+            <div class="col-12 col-md-8 col-lg-8 ">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Roles List</h4>
+
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <div id="datatable_wrapper"
+                                 class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                                <div class="dt--top-section">
+                                    <div class="row">
+                                        <div class="d-flex justify-content-md-start justify-content-center">
+                                            <div class="dt-buttons">
+                                                <button class="dt-button buttons-copy buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Copy</span>
+                                                </button>
+                                                <button class="dt-button buttons-csv buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>CSV</span>
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5 btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Excel</span>
+                                                </button>
+                                                <button class="dt-button buttons-print btn btn-sm"
+                                                        tabindex="0"
+                                                        aria-controls="datatable">
+                                                    <span>Print</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">
+                                            <div id="datatable_filter" class="dataTables_filter">
+                                                <label>
+                                                    Search:<input type="search" class="form-control"
+                                                                  placeholder="Search..."
+                                                                  aria-controls="datatable">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-container">
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>#</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Name</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-3">
+                                            <span>Status</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <span>Action</span>
+                                            <span class="sort-fill">
+                                                <i class="fa-solid fa-angle-up hover-sort-up"></i>
+                                                <i class="fa-solid fa-angle-down hover-sort-down"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>1</span>
+
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Admin S</span>
+                                        </li>
+                                        <li class="body-table table-3 table-status">
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <i class="fa-solid icon-edit fa-pen-to-square"
+                                               id="edit-role-icon"></i>
+                                            <i class="fa-solid icon-remove fa-trash-can"
+                                               id="delete-role"></i>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>1</span>
+
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Admin S</span>
+                                        </li>
+                                        <li class="body-table table-3 table-status">
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <i class="fa-solid icon-edit fa-pen-to-square"
+                                               id="edit-role-icon"></i>
+                                            <i class="fa-solid icon-remove fa-trash-can"
+                                               id="delete-role"></i>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>1</span>
+
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Admin S</span>
+                                        </li>
+                                        <li class="body-table table-3 table-status">
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <i class="fa-solid icon-edit fa-pen-to-square"
+                                               id="edit-role-icon"></i>
+                                            <i class="fa-solid icon-remove fa-trash-can"
+                                               id="delete-role"></i>
+                                        </li>
+                                    </ul>
+                                    <ul class="table-list">
+                                        <li class="body-table table-1">
+                                            <span>1</span>
+
+                                        </li>
+                                        <li class="body-table table-2">
+                                            <span>Admin S</span>
+                                        </li>
+                                        <li class="body-table table-3 table-status">
+                                            <span class="body-status">role_create</span>
+                                            <span class="body-status">role_create</span>
+                                        </li>
+                                        <li class="body-table table-1">
+                                            <i class="fa-solid icon-edit fa-pen-to-square"
+                                               id="edit-role-icon" id="edit-role-icon"></i>
+                                            <i class="fa-solid icon-remove fa-trash-can"
+                                               id="delete-role" id="delete-role"></i>
+                                        </li>
+                                    </ul>
+                                    <ul class="pageding">
+                                        <li>
+                                            <div class="div-show-number">Showing page 1 of 14</div>
+
+                                        </li>
+                                        <li>
+                                            <div class="div-page-number">
+                                                <ul class="ul-page-number">
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-left-long"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a class="page-first">1</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>2</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>3</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>4</a>
+                                                    </li>
+                                                    <li class="page-number">
+                                                        <a>
+                                                            <i class="fa-solid fa-right-long"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 " id="create-role">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Add New Role</h4>
+                    </div>
+                    <form action="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/role"
+                          method="POST" enctype="multipart/form-data">
+
+                        <input type="hidden" name="_token"
+                               value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control " required=""
+                                               maxlength="50" value="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Permissions</label>
+                                        <div id="div-input-create">
+                                            <div id="div-out-create" class="hide">
+                                                <ul id="choose-values-click">
+                                                </ul>
+                                                <div id="role-more" onclick="ClickThem()">Add</div>
+                                            </div>
+                                            <input id="input-create" onclick="ClickHere()"></textarea>
+                                        </div>
+
+                                        <div id="div-role style-1" class="show-div scrollbar">
+                                            <ul id="choose-values">
+                                                <li class="choose" id="1" value="1">a</li>
+                                                <li class="choose" id="2" value="2">b</li>
+                                                <li class="choose" id="3" value="3">c</li>
+                                                <li class="choose" id="4" value="4">d</li>
+                                                <li class="choose" id="5" value="5">e</li>
+                                                <li class="choose" id="6" value="6">f</li>
+                                                <li class="choose" id="7" value="7">g</li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-4 col-lg-4 " id="edit-role">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Edit Role</h4>
+                    </div>
+                    <form action="https://saasmonks.in/App-Demo/Cursus-33214/public/admin/role"
+                          method="POST" enctype="multipart/form-data">
+
+                        <input type="hidden" name="_token"
+                               value="Yp9sxRJTsEf2i1XRvuWcGhTaEWLKpgsR2EZwHKQK">
+                        <div class="card-body">
+                            <div class="row ">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control " required=""
+                                               maxlength="50" value="Admin S">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label>Permissions</label>
+                                        <div style="width: 100%">
+                                            <label style="width: 100%">
+                                                <select name="select_item-edit" id="select_item-edit"
+                                                        multiple="mutiple">
+                                                    <option value="1">role_create</option>
+                                                    <option value="2">role_edit</option>
+                                                    <option value="3">role_access</option>
+                                                    <option value="4">user_create</option>
+                                                    <option value="5">user_edit</option>
+                                                    <option value="6">user_delete</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
